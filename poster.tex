@@ -137,8 +137,8 @@ Izpētes gaitā tiek nonākts līdz continuous action-critic learning automaton 
 Salīdzinot mašīnmācīšanās disciplīnas, stimulētā mācīšanās (SM) uz pārējo fona izceļas.
 Tā stāv ļoti tuvu intuitīvajai izpratnei, par to, kas vispār ir mācīšanās tādā nozīmē, kā to dara dzīvnieki vai cilvēks.
 Tās pamatā ir aģenta mijiedarbība ar apkārtējo vidi, lai patstāvīgi iemācītos tajā darboties, atbilstoši kādai izpratnei par optimālumu.
-Kā jau matemātiskā disciplīnā tajā apskatāmās situācijas tiek formalizētas, un parasti tas tiek darīts ar Markova izvēles procesu palīdzību.
-Tas ļauj stimulētās mācīšanās paradigmā formulēt ļoti plašu problēmu loku, sākot ar, piemēram, orientēšanos labirintā, līdz autonomai lidaparāta kontrolei.
+SM paradigmā apskatāmās situācijas parasti tiek formalizētas ar Markova izvēles procesu palīdzību.
+Tas ļauj stimulētās mācīšanās paradigmā apskatīt ļoti plašu problēmu loku, sākot ar, piemēram, orientēšanos labirintā, līdz autonomai lidaparāta kontrolei.
 
 Uzdevumu risināšana nepārtrauktās stāvokļu telpās ir plaši pētīta, un to var veikt samērā sekmīgi.
 Tomēr citāda situācija paveras nepārtrauktu darbības telpu gadījumā.
@@ -308,11 +308,11 @@ inicializē $\theta_0, \psi_0, s_0$ \\
 \section*{Secinājumi}
 
 \begin{itemize}
-	\item Modeļa un plaši izmantotās vērtību aproksimācijas metodēs problēmas, kas saistās ar to pielietojumu nepārtrauktām darbību telpām nav vienkāršā veidā risināmas ar neironu tīkliem.
+	\item Modeļa un plaši izmantotās vērtību aproksimācijas metodēs problēmas, kas saistās ar to pielietojumu nepārtrauktām darbību telpām, nav vienkāršā veidā risināmas ar neironu tīkliem.
 	\item Stratēģiju glabājot tiešā veidā, paveras iespējas tās reprezentēšanu uzticēt neironu tīklam.
 	\item Actor-only metodēs nākas parametru pielāgošanu sarežģītā veidā sasaistīt ar atalgojuma funkcijas novērtējumiem, izmantojot Monte Carlo metodes.
 	\item Iespējams stratēģiju pielāgot, ņemot vērā kļūdu tās paredzēto darbību telpā, katras darbības labumu vērtējot ar izmaiņām, ko tās sniegtais atalgojums dod stāvokļa vērtības novērtējumam. Šī ideja ir pamatā CACLA.
-	\item CACLA dizains eleganti mērķos paustās idejas. Turklāt ir empīriski parādītas tā priekšrocības mācīšanās ātrumā, salīdzinot ar klasiskajiem algoritmiem.
+	\item CACLA dizains eleganti ietver mērķos paustās idejas. Turklāt ir empīriski parādāmas priekšrocības mācīšanās ātrumā, salīdzinot to ar klasiskajiem algoritmiem.
 	\item Intuīcija par neironu tīklu lietderību stimulētas mācīšanās uzdevumos ar nepārtrauktām darbību telpām ir bijusi pareiza, un darba mērķi ir sasniegti.
 \end{itemize}
 
