@@ -124,7 +124,7 @@ Email: \texttt{john@LaTeXTemplates.com}\\ % Email address
 
 %----------------------------------------------------------------------------------------
 
-\begin{multicols}{4} % This is how many columns your poster will be broken into, a poster with many figures may benefit from less columns whereas a text-heavy poster benefits from more
+\begin{multicols}{5} % This is how many columns your poster will be broken into, a poster with many figures may benefit from less columns whereas a text-heavy poster benefits from more
 
 %----------------------------------------------------------------------------------------
 %	ABSTRACT
@@ -140,8 +140,6 @@ Autors iztirzā literatūrā parādīto klasisko pieeju un algoritmu atsevišķu
 Izpētes gaitā tiek nonākts līdz continuous action-critic learning automaton (CACLA) algoritmam, kas pārvar problēmas, ar ko saskaras citi apskatītie algoritmi un pieejas gan lietojamībā nepārtrauktās darbību telpās, gan savietojamībā ar neironu tīkliem, kā arī tiek secināts, ka tā darbībā ir vairākas citas pozitīvas īpašības.
 %Darbs tiek noslēgts ar diskusiju par 
 
-\keywords{stimulētā mācīšanās; neironu tīkli; Markova izvēles procesi; nepārtrauktas telpas.}
-
 \end{abstract}
 
 %----------------------------------------------------------------------------------------
@@ -152,13 +150,13 @@ Izpētes gaitā tiek nonākts līdz continuous action-critic learning automaton 
 
 \section*{Ievads}
 
-Salīdzinot mašīnmācīšanās disciplīnas, stimulētā mācīšanās uz pārējo fona izceļas.
+Salīdzinot mašīnmācīšanās disciplīnas, stimulētā mācīšanās (SM) uz pārējo fona izceļas.
 Tā stāv ļoti tuvu intuitīvajai izpratnei, par to, kas vispār ir mācīšanās tādā nozīmē, kā to dara dzīvnieki vai cilvēks.
 Tās pamatā ir aģenta mijiedarbība ar apkārtējo vidi, lai patstāvīgi iemācītos tajā darboties, atbilstoši kādai izpratnei par optimālumu.
 Kā jau matemātiskā disciplīnā tajā apskatāmās situācijas tiek formalizētas, un parasti tas tiek darīts ar Markova izvēles procesu palīdzību.
 Tas ļauj stimulētās mācīšanās paradigmā formulēt ļoti plašu problēmu loku, sākot ar, piemēram, orientēšanos labirintā, līdz autonomai lidaparāta kontrolei.
 
-Uzdevumu risināšana nepārtrauktās darbību telpās ir plaši pētīta, un to var veikt samērā sekmīgi.
+Uzdevumu risināšana nepārtrauktās stāvokļu telpās ir plaši pētīta, un to var veikt samērā sekmīgi.
 Tomēr citāda situācija paveras nepārtrauktu darbības telpu gadījumā.
 Šāda tipa uzdevumu risināšana ir mazāk pētīta, un plaši lietotās nepārtrauktu stāvokļu telpu pieejas šeit nav tiešā veidā izmantojamas.
 
@@ -166,8 +164,7 @@ No otras puses, literatūrā un praksē ir sastopams daudz piemēru, kas izceļ 
 Tiek demonstrētas to pozitīvās īpašības, kā robustums, spēja vispārināt un pielietojuma iespēju daudzveidība.
 Ir zināms, ka neironu tīkli var kalpot kā universāls nepārtrauktu funkciju aproksimācijas līdzeklis.
 Tas liek domāt, ka neironu tīkli ir dabīgā veidā izmantojami stimulētās mācīšanās uzdevumos aģenta darbību izvēles mehānisma reprezentācijai.
-To var intuitīvi pamatot ar neironu tīklu spēju atrast sakarības datos -- virspusēji nav redzami ierobežojumi, lai šī īpašība nebūtu pārnesama arī stimulētās mācīšanās uzdevumos, sakarību meklēšanai aģenta kontroles stratēģijā.
-Turklāt, ir pamats domāt, ka rezultātā iegūtā algoritma uzbūve būtu gana vispārīga, lai to kā universālu līdzekli pielietotu plašam problēmu lokam.
+
 
 %----------------------------------------------------------------------------------------
 %	OBJECTIVES
@@ -176,9 +173,11 @@ Turklāt, ir pamats domāt, ka rezultātā iegūtā algoritma uzbūve būtu gana
 \color{DarkSlateGray} % DarkSlateGray color for the rest of the content
 
 \section*{Galvenie mērķi}
-
-Par darba mērķi tiek izvirzīts izvērtēt iespējas risināt stimulētās mācīšanās uzdevumus nepārtrauktās darbības telpās, izmantojot neironu tīklus kā līdzekli stratēģijas reprezentēšanai.
-Meklētas tiek vispārīgas pieejas, problēmas risināšanai, kas ļautu nonākt pie universāla un viegli pielietojama algoritma stimulētās mācīšanās uzdevumu risināšanai nepārtrauktās darbību telpās.
+\begin{enumerate}
+	\item Izvērtēt iespējas izmantot neironu tīklus SM stratēģijas reprezentēšanai nepārtrauktās darbības telpās.
+	\item Izvērtēt idejas pamatotumu.
+	\item Dot priekšroku vispārīgām pieejām problēmas risināšanai, kas ļautu nonākt pie universāla un viegli pielietojama algoritma
+\end{enumerate}
 
 %----------------------------------------------------------------------------------------
 %	MATERIALS AND METHODS
@@ -186,9 +185,8 @@ Meklētas tiek vispārīgas pieejas, problēmas risināšanai, kas ļautu nonāk
 
 \section*{Markova izvēles procesi}
 
-Markova izvēles procesi (angliski Markov decision processes, turpmāk tekstā - MDP) formalizē un ļauj modelēt izvēles veikšanas procesu apstākļos, kur darbības rezultāts ir atkarīgs tikai no sistēmas pašreizējā stāvokļa, bet ir daļēji nejaušs, t.i., izvēles veicējs procesu kontrolē tikai daļēji.
+Markova izvēles procesi (angliski Markov decision processes, turpmāk - MDP) formalizē un ļauj modelēt izvēles veikšanas procesu apstākļos, kur darbības rezultāts ir atkarīgs tikai no sistēmas pašreizējā stāvokļa, bet ir daļēji nejaušs, t.i., izvēles veicējs procesu kontrolē tikai daļēji.
 Mērķis ir kontrolēt sistēmu tā, lai tiktu maksimizēta kāda metrika, kas ir atkarīga no katrā solī veiktās darbības rezultāta.
-Tiek uzskatīts, ka MDP ir ieviesti \autocite{Bel}.
 
 \begin{definicija}
 Par Markova izvēles procesu, jeb MDP, sauc kortežu $(S, A, T, R)$, kur:
@@ -200,30 +198,30 @@ Par Markova izvēles procesu, jeb MDP, sauc kortežu $(S, A, T, R)$, kur:
 \end{itemize}
 Ja stāvokļu telpa ir nepārtraukta, $T(s, a, s')$ apzīmē varbūtību blīvuma funkciju, jeb
 \[
-	\int_{S'} T(s, a, s')ds' = P(s_{t+1} \in S' \mid s_t = s \land a_t = a),
+	\int_{S'} T(s, a, s')ds' = P(s_{t+1} \in S' \mid s_t = s \land a_t = a).
 \]
-kas norāda varbūtību, ka stāvoklī $s \in S$, veicot darbību $a \in A$ pāreja beigsies stāvoklī, kas pieder apgabalam $S'$. %TODO jāpaskaidro _t un _{t+1}?
 \end{definicija}
+
+Ievieš arī funkciju $\pi: S \times A \rightarrow [0, 1]$, kas apzīmē optimālo stratēģiju, jeb kontroles shēmu:
+\[
+	\pi(s, a) = P(a_t = a \mid s_t = s).
+\]
 %------------------------------------------------
 
 \subsection*{Modeļa aproksimācija}
 Modeļa aproksimācijas pieejā tiek mēģināts tuvināti atrast dotās MDP nezināmos parametrus -- pāreju funkciju $T$ un atalgojuma funkciju $R$ --, lai no tām atvasinātu aproksimētās MDP optimālo kontroles shēmu.
-Modeļa meklēšanā tiek pieņemts, ka kopas $S$ un $A$ ir zināmas.
-Dziļākam ieskatam metodēs, kas tiek izmantotas modeļa aproksimēšanā, skatīt \autocite{nguyen2011model}.
+Kad modelis ir zināms, stratēģijas iegūšana tiek veikta ar metodēm, kas tuvākas dinamiskajai programmēšanai.
 
 \subsection*{Vērtību aproksimācija}
-Vērtību aproksimācijas piegājienā tiek nevis mēģināts atrast trūkstošās pāreju un atalgojuma funkcijas, bet gan tiek uzreiz mēģināts tuvināti atrast funkcijas $V^*$ vai $Q^*$.
-Kā redzams iepriekšējā sadaļā, vienādojumi \eqref{eq:1} un \eqref{eq:2} ļauj atrast $\pi^*$, ja $V^*$ vai $Q^*$ ir zināma.
-Šīs kategorijas algoritmus iedala atkarībā no tā, vai tie ir spējīgi mācīties tiešsaistē, un vai algoritms ir on-policy vai off-policy tipa.
+Vērtību aproksimācijas piegājienā tiek nevis mēģināts atrast trūkstošās pāreju un atalgojuma funkcijas, bet gan tiek uzreiz mēģināts tuvināti atrast optimālās funkcijas $V^*$ vai $Q^*$.
+Tas tālāk ļauj tuvināti atrast optimālo kontroles shēmu $\pi^*$ ir zināma.
+Metodei pieder on-policy algoritmi, kā, piemēram, temporal-difference saimes algoritmi, kā arī off-policy algoritmi, kā, piemēram, ir Q-learning un tā varianti.
 
 \subsection*{Stratēģijas aproksimācija}
 Atšķirībā no vērtību aproksimācijas algoritmiem, stratēģijas aproksimācijas pieejas algoritmi optimālās stratēģijas tuvinājumu glabā tiešā veidā.
-Parasti nav nekādu šķēršļu $\pi^*$ reprezentācijai izmantot kādu vispārīgu funkciju aproksimētāju. Tādā gadījumā algoritms glabā tā parametrus.
-Šim nolūkam var tikt izmantots arī neironu tīkls.
-Bez tuvinātas optimālās stratēģijas mēdz tikt glabāta arī $V^{\pi^*}$ vai $Q^{\pi^*}$ funkcija.
+Parasti nav šķēršļu $\pi$ reprezentācijai izmantot kādu vispārīgu funkciju aproksimētāju kā neironu tīklu.
+Bez tuvinātas optimālās stratēģijas mēdz tikt glabāta arī $V$ vai $Q$ aproksimācija.
 Algoritmus, kuros tiek tā darīts, mēdz saukt par actor-critic algoritmiem, ar vārdu critic atsaucoties uz algoritma daļu, kas vērtē spēles stāvokļa izdevību, jeb $V^{\pi^*}$ vai $Q^{\pi^*}$, un ar actor atsaucoties uz stratēģiju.
-Pēc analoģijas, stratēģijas aproksimācijas algoritmus, kas neizmanto kādu no vērtību funkcijām, dēvē par actor-only algoritmie, savukārt vērtību aproksimācijas algoritmus -- par critic-only algoritmiem.
-Stratēģijas aproksimācijas algoritmi tiks tuvāk apskatīti \ref{chap:stim} nodaļā.
 
 %----------------------------------------------------------------------------------------
 %	RESULTS 
@@ -235,16 +233,11 @@ Stratēģijas aproksimācijas algoritmi tiks tuvāk apskatīti \ref{chap:stim} n
 Neironu tīkli pieder pie nelineārajiem funkciju aproksimētājiem.
 Tie it veidoti uz līdzību pamata ar bioloģisko neironu tīkliem smadzenēs un parasti tiek formulēti kā savstarpēji savienotu "neironu" sistēma, kas dotus ieejas datus pārvērš izejas datos atbilstoši sistēmas neironu svariem.
 Katru neironu raksturo svaru komplekts, kas ir koeficienti dotā neirona ieejas neironu vērtībām.
-Neirons izejā dod ieejas neironu signālu un svaru lineāru kombināciju, kam pielietota kāda (parasti) nelineāra funkcija. To dēvē par aktivācijas funkciju.
+Neirons izejā dod ieejas neironu signālu un svaru lineāru kombināciju, kam pielietota kāda (parasti) nelineāra funkcija.
 Praksē bieži tiek lietota t.s. simgoid funkcija
 \[
-	f(x) = \frac{1}{1 + e^{-x}}.
+	f_\theta(x) = \frac{1}{1 + e^{-\theta^T x}}.
 \]
-Izsakot to atkarībā no neirona svaru vektora $\Theta$, iegūst
-\[
-	f_\Theta(x) = \frac{1}{1 + e^{-\Theta^T x}},
-\]
-kur $D_\Theta = D_x$. Formāli neironu tīkls ir parasta parametrizējama funkcija, bet šāds skatījums ir intuitīvi vieglāk saprotams.
 
 %\begin{figure}
 %	\centering
@@ -258,11 +251,17 @@ kur $D_\Theta = D_x$. Formāli neironu tīkls ir parasta parametrizējama funkci
 \captionof{figure}{\color{Green} Figure caption}
 \end{center}\vspace{1cm}
 
+Neironu tīkls ar pietiekamu neironu skaitu ir izmantojams patvaļīgu funkciju aproksimēšanai.
+Šī ir nozīmīga priekšrocība, salīdzinot ar, piemēram, lineārajiem funkciju aproksimājiem, un ir pamatā intuīcijai par neironu tīklu spēju uztvert sakarības MDP optimālajā kontroles stratēģijā.
+Kā arī spēja aproksimēt nepārtrauktas funkcijas ir nepieciešama lai funkciju aproksimētājs būtu spējīgs darboties nepārtrauktās darbību telpās.
+
 \section*{Stimulētā mācīšanās}
+Stimuletas mācīšanās (SM, angliski -- reinforcement learning) pārziņā ir situācijas, kurās uzdevums jārisina mijiedarbojoties ar apkārtējo vidi. 
+Tā vietā, lai problēmu risinātu, dodot algoritmam sagatavotus ieejas datus ar norādītām labākajām darbībām, algoritms mācās no savas pieredzes, izmēģinot darbības un novērojot saņemto atalgojumu.
+Vispārīgā gadījumā algoritmam ir patstāvīgi jāapgūst darbošanās sarežģītos problēmapgabalos, kur darbības labumu var izvērtēt tikai ilgtermiņā uz priekšu.
+
 \subsection*{Temporal difference soļi} \label{chap:td}
 Temporal difference (TD) soļi tiek izmantoti stāvokļu vērtības funkcijas aproksimācijā.
-Šis paņēmiens ir idejiski tuvās vērtības aproksimācijas metodēm, bet, kā vēlāk redzēsim, ir izmantojams arī actor-critic metodēs, lai iegūtu $V^*$ aproksimāciju.
-Pastāv dažādas idejas variācijas, kas ir pamatā vairākiem vērtību aproksimācijas algoritmiem, kas tiek klasificēti zem TD learning vārda, bet pamatideja ir vienkārša.
 TD soļiem tabulārajā formā stāvokļu vērtību funkcija tiek pielāgota, izmantojot vienādojumu
 \[
 	V_{t+1}(s_t) = V_t + \alpha_t(s_t) \delta_t,
@@ -274,15 +273,12 @@ Ja ir dota parametrizēta vērtību funkcija $V:S \times \Theta \rightarrow \mat
 	\theta_{t+1} = \theta_t + \alpha_t(s_t) \delta_t \nabla_\theta V_t(s_t).
 \]
 
-\subsubsection*{CACLA algoritms}
-CACLA algoritma pamatā ir vienkārša ideja -- ja veiktā darbība paaugstina stāvokļa vērtības novērtējumu, tad šim stāvoklim ir derīgi pielāgot stratēģiju veiktās darbības virzienā, jo tā potenciāli var novest pie lielāka kopējā atalgojuma.
-%Paralēli tam, algoritms katrā solī uzlabo savu stāvokļu vērtības novērtējumu.
-%Laika gaitā stāvokļu vērtības novērtējums konverģē uz  Rezultātā algoritma stratēģija ar vien vairāk tuvojas optimālajai.
-Algoritms glabā funkciju $V:S \times \Theta \rightarrow \mathbb{R}$ -- kritiķi -- un $Ac : S \times \Psi \rightarrow A$ -- aktieri. Sasaistot apzīmējumus ar ierastajiem -- $V$ tagad tiek parametrizēta ar kādu vektoru $\theta \in \Theta$, kas ļaus pielāgot funkcijas vērtības algoritma darbības laikā. Apzīmēsim $V_t(s_t) = V(s_t, \theta_t)$ un $Ac_t(s_t) = Ac(s_t, \psi_t)$.
+\subsection*{CACLA algoritms}
+Algoritma pamatā ir vienkārša ideja -- ja veiktā darbība paaugstina stāvokļa vērtības novērtējumu, tad šim stāvoklim ir derīgi pielāgot stratēģiju veiktās darbības virzienā, jo tā potenciāli var novest pie lielāka kopējā atalgojuma.
+Algoritms glabā funkciju $V:S \times \Theta \rightarrow \mathbb{R}$ -- kritiķi -- un $Ac : S \times \Psi \rightarrow A$ -- aktieri.
 Aktieris katrā solī dotajam stāvoklim $s_t$ sniedz darbību $Ac(s_t, \psi_t)$.
-Lai nodrošinātu darbību telpas izpēti, nepieciešams, lai galā izmantotā darbība atšķiras no ieteiktās, jeb $a_t \neq Ac(s_t, \psi_t)$.
-To var darīt, piemēram, ņemot $\pi(s_t, \psi_t)$ kā normālsadalījumu ar centru $Ac(s_t, \psi_t)$.
-Kad ir iegūta veicamā darbība $a_t$, novēro atalgojumu $r_t$ un veic standarta TD soli vērtību funkcijai, kā tas aprakstīts sadaļā \ref{chap:td}
+Lai nodrošinātu darbību telpas izpēti, nepieciešams, lai galā izmantotā darbība atšķiras no ieteiktās, jeb $a_t \neq Ac(s_t, \psi_t)$, piemēram, ņemot $\pi(s_t, \psi_t)$ kā normālsadalījumu ar centru $Ac(s_t, \psi_t)$.
+Kad ir iegūta veicamā darbība $a_t$, novēro atalgojumu $r_t$, un veic standarta TD soli, lai precizētu vērtību funkciju.
 \[
 	V_{t+1}(s_t) \xleftarrow{\alpha_t(s_t)} r_t + \gamma V_t(s_{t + 1}).
 \]
@@ -291,7 +287,7 @@ Ja $a_t$ veikšana ir palielinājusi $s_t$ vērtības novērtējumu, t.i., ja $V
 	Ac_{t+1}(s_t) \xleftarrow{\beta_t(s_t)} a_t.
 \]
 
-
+\iffalse
 %\begin{spacing}{1}
 \begin{center}\vspace{1cm}
 \begin{algorithm}
@@ -313,6 +309,7 @@ inicializē $\theta_0, \psi_0, s_0$ \\
 \end{algorithm}
 \end{center}
 %\end{spacing}
+\fi
 %----------------------------------------------------------------------------------------
 %	CONCLUSIONS
 %----------------------------------------------------------------------------------------
@@ -321,23 +318,14 @@ inicializē $\theta_0, \psi_0, s_0$ \\
 
 \section*{Secinājumi}
 
-Modeļa aproksimācijas metodēs un plaši izmantotās vērtību aproksimācijas metodēs problēmas, kas saistās ar to pielietojumu nepārtrauktām darbību telpām nav vienkāršā veidā risināmas ar neironu tīkliem.
-Tam traucē fakts, ka šeit stratēģija tiek atvasināta no vērtību funkcijas.
-Tas arī saistās ar nepieciešamību diskretizēt darbību telpu.
-Darbā netiek tuvāk pētīts, cik pārvarama ir šī problēma, bet tā vietā risinājums tiek meklēts alternatīvā pieejā, ko sniedz stratēģijas aproksimācijas metodes.
-Stratēģiju glabājot tiešā veidā, paveras iespējas šo lomu uzticēt neironu tīklam.
-Tomēr, kā nākas secināt, daļā metožu tīkla parametru pielāgošana, jeb tīkla trenēšana, it diezgan sarežģīta.
-Actor-only metodēs nākas parametru pielāgošanu sarežģītā veidā sasaistīt ar atalgojuma funkcijas novērtējumiem, izmantojot Monte Carlo metodes.
-Alternatīvu piedāvā actor-critic pieeja, kur tiešā veidā tiek glabāta gan stāvokļu vērtības funkcijas aproksimācija gan stratēģijas aproksimācija.
-Šīs īpašības noved iespējas pie stratēģijas parametrus pielāgot, ņemot vērā kļūdu tās paredzēto darbību telpā, katras darbības labumu vērtējot ar izmaiņām, ko tās sniegtais atalgojums dod stāvokļa vērtības novērtējumam.
-Šīs idejas ir apvienotas CACLA, jeb continuous actor-critic learning automaton, algoritmā.
-Autora prāt algoritma dizains elegantā un vienkārša veidā iekļauj risinājumus visām iepriekš minētajām problēmām.
-Turklāt ir empīriski parādītas priekšrocības, kas tam piemīt mācīšanās ātruma ziņā salīdzinot ar plaši izmantotajiem klasisko pieeju algoritmiem, kā arī algoritmam piemīt vairākas citas pozitīvas īpašības, kas izpaužas nestandarta uzdevumu uzstādījumos, kā, piemēram, darbinot CACLA diskrētā darbību telpā, pēc laika samazinot pieejamo darbību skaitu.
-
-%Noslēgumā var secināt, ka s..
-Rezultātā sākotnējā intuīcija par neironu tīklu lietderību stimulētas mācīšanās uzdevumos ar nepārtrauktām darbību telpām ir bijusi derīga.
-Analizējot izplatītākās stimulētās mācīšanās pieejas, ir izdevies nonākt pie CACLA algoritma, kas dabīgā veidā risina problēmas, kas plašāk pazīstamajiem algoritmiem liedz tikt pielāgotiem nepārtrauktām darbību telpām, kā arī dara to ar neironu tīklu palīdzību.
-Tas ļauj teikt, ka darba mērķis ir sasniegts.
+\begin{itemize}
+	\item Modeļa un plaši izmantotās vērtību aproksimācijas metodēs problēmas, kas saistās ar to pielietojumu nepārtrauktām darbību telpām nav vienkāršā veidā risināmas ar neironu tīkliem.
+	\item Stratēģiju glabājot tiešā veidā, paveras iespējas tās reprezentēšanu uzticēt neironu tīklam.
+	\item Actor-only metodēs nākas parametru pielāgošanu sarežģītā veidā sasaistīt ar atalgojuma funkcijas novērtējumiem, izmantojot Monte Carlo metodes.
+	\item Iespējams stratēģiju pielāgot, ņemot vērā kļūdu tās paredzēto darbību telpā, katras darbības labumu vērtējot ar izmaiņām, ko tās sniegtais atalgojums dod stāvokļa vērtības novērtējumam. Šī ideja ir pamatā CACLA.
+	\item CACLA dizains eleganti mērķos paustās idejas. Turklāt ir empīriski parādītas tā priekšrocības mācīšanās ātrumā, salīdzinot ar klasiskajiem algoritmiem.
+	\item Intuīcija par neironu tīklu lietderību stimulētas mācīšanās uzdevumos ar nepārtrauktām darbību telpām ir bijusi pareiza, un darba mērķi ir sasniegti.
+\end{itemize}
 
 \color{DarkSlateGray} % Set the color back to DarkSlateGray for the rest of the content
 
@@ -345,9 +333,9 @@ Tas ļauj teikt, ka darba mērķis ir sasniegts.
 %	FORTHCOMING RESEARCH
 %----------------------------------------------------------------------------------------
 
-\section*{Turpmākie pētījumi}
+\section*{Turpmākiem pētījumiem}
 
-Kopumā ir daudz jaunu pieeju, kas būtu aizgūstamas no, tā teikt, vairāk klasiskās mašīnmācīšanās, un kam varētu rast pielietojumu stimulētās mācīšanās paradigmā.
+Ir daudz jaunu pieeju, kas būtu aizgūstamas no, tā teikt, vairāk klasiskās mašīnmācīšanās, un kam varētu rast pielietojumu stimulētās mācīšanās paradigmā.
 Interesi raisa iespējas tās mēģināt savietot ar šajā darbā pētīto CACLA algoritmu, cerot, ka ieguvumi, ko sniedz tā izmantošana, ļautu, piemēram, sekmīgāk adaptēt dziļos neironu tīklus stratēģijas aproksimācijai.
 Šī ir potenciāla tēma nākamajiem pētījumiem.
 
@@ -359,7 +347,7 @@ Interesi raisa iespējas tās mēģināt savietot ar šajā darbā pētīto CACL
 %\bibliographystyle{plain} % Plain referencing style
 %\bibliography{sample} % Use the example bibliography file sample.bib
 
-\printbibliography
+%\printbibliography
 
 %----------------------------------------------------------------------------------------
 %	ACKNOWLEDGEMENTS
