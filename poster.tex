@@ -255,6 +255,7 @@ Stimuletas mācīšanās (SM, angliski -- reinforcement learning) pārziņā ir 
 Tā vietā, lai problēmu risinātu, dodot algoritmam sagatavotus ieejas datus ar norādītām labākajām darbībām, algoritms mācās no savas pieredzes, izmēģinot darbības un novērojot saņemto atalgojumu.
 Vispārīgā gadījumā algoritmam ir patstāvīgi jāapgūst darbošanās sarežģītos problēmapgabalos, kur darbības labumu var izvērtēt tikai ilgtermiņā uz priekšu.
 
+\iffalse
 \subsection*{Temporal difference soļi} \label{chap:td}
 Temporal difference (TD) soļi tiek izmantoti stāvokļu vērtības funkcijas aproksimācijā.
 TD soļiem tabulārajā formā stāvokļu vērtību funkcija tiek pielāgota, izmantojot vienādojumu
@@ -267,6 +268,7 @@ Ja ir dota parametrizēta vērtību funkcija $V:S \times \Theta \rightarrow \mat
 \[
 	\theta_{t+1} = \theta_t + \alpha_t(s_t) \delta_t \nabla_\theta V_t(s_t).
 \]
+\fi
 
 \subsection*{CACLA algoritms}
 Algoritma pamatā ir vienkārša ideja -- ja veiktā darbība paaugstina stāvokļa vērtības novērtējumu, tad šim stāvoklim ir derīgi pielāgot stratēģiju veiktās darbības virzienā, jo tā potenciāli var novest pie lielāka kopējā atalgojuma.
