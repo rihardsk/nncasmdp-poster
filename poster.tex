@@ -48,6 +48,11 @@
 \setdefaultlanguage{latvian}
 %\setotherlanguages{english,russian}
 
+
+% New commands
+\newcommand{\keywordname}{Atslēgas vārdi:}
+\newcommand{\keywords}[1]{\par\addvspace\baselineskip\noindent\keywordname\enspace\ignorespaces#1}
+
 \begin{document}
 
 %----------------------------------------------------------------------------------------
@@ -94,7 +99,13 @@ Email: \texttt{john@LaTeXTemplates.com}\\ % Email address
 
 \begin{abstract}
 
-Sed fringilla tempus hendrerit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam ut elit sit amet metus lobortis consequat sit amet in libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel sem magna. Nunc at convallis urna. isus ante. Pellentesque condimentum dui. Etiam sagittis purus non tellus tempor volutpat. Donec et dui non massa tristique adipiscing. Quisque vestibulum eros eu. Phasellus imperdiet, tortor vitae congue bibendum, felis enim sagittis lorem, et volutpat ante orci sagittis mi. Morbi rutrum laoreet semper. Morbi accumsan enim nec tortor consectetur non commodo nisi sollicitudin. Proin sollicitudin. Pellentesque eget orci eros. Fusce ultricies, tellus et pellentesque fringilla, ante massa luctus libero, quis tristique purus urna nec nibh.
+Neironu tīklu lietojums praksē un literatūrā ir parādījis to pozitīvās īpašības, kā robustumu, spēju vispārināt un pielietojuma iespēju daudzveidību.
+Darbā tiek pētīts neironu tīklu lietojums stimulētās mācīšanās paradigmā, ar mērķi pētīt iespējas to labās īpašības pārnest uz šo nozari, īpašu uzmanību pievēršot tieši to pielietojumam nepārtrauktu darbības telpu Markova izvēles procesos.
+Autors iztirzā literatūrā parādīto klasisko pieeju un algoritmu atsevišķu komponenšu sniegumu nozīmīgākajos aspektos, kas saistīti ar to lietojumu nepārtrauktās darbību telpās.
+Izpētes gaitā tiek nonākts līdz continuous action-critic learning automaton (CACLA) algoritmam, kas pārvar problēmas, ar ko saskaras citi apskatītie algoritmi un pieejas gan lietojamībā nepārtrauktās darbību telpās, gan savietojamībā ar neironu tīkliem, kā arī tiek secināts, ka tā darbībā ir vairākas citas pozitīvas īpašības.
+%Darbs tiek noslēgts ar diskusiju par 
+
+\keywords{stimulētā mācīšanās; neironu tīkli; Markova izvēles procesi; nepārtrauktas telpas.}
 
 \end{abstract}
 
@@ -104,13 +115,24 @@ Sed fringilla tempus hendrerit. Vestibulum ante ipsum primis in faucibus orci lu
 
 \color{SaddleBrown} % SaddleBrown color for the introduction
 
-\section*{Introduction}
+\section*{Ievads}
 
-Aliquam non lacus dolor, \textit{a aliquam quam} \cite{Smith:2012qr}. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla in nibh mauris. Donec vel ligula nisi, a lacinia arcu. Sed mi dui, malesuada vel consectetur et, egestas porta nisi. Sed eleifend pharetra dolor, et dapibus est vulputate eu. \textbf{Integer faucibus elementum felis vitae fringilla.} In hac habitasse platea dictumst. Duis tristique rutrum nisl, nec vulputate elit porta ut. Donec sodales sollicitudin turpis sed convallis. Etiam mauris ligula, blandit adipiscing condimentum eu, dapibus pellentesque risus.
+Salīdzinot mašīnmācīšanās disciplīnas, stimulētā mācīšanās uz pārējo fona izceļas.
+Tā stāv ļoti tuvu intuitīvajai izpratnei, par to, kas vispār ir mācīšanās tādā nozīmē, kā to dara dzīvnieki vai cilvēks.
+Tās pamatā ir aģenta mijiedarbība ar apkārtējo vidi, lai patstāvīgi iemācītos tajā darboties, atbilstoši kādai izpratnei par optimālumu.
+Kā jau matemātiskā disciplīnā tajā apskatāmās situācijas tiek formalizētas, un parasti tas tiek darīts ar Markova izvēles procesu palīdzību.
+Tas ļauj stimulētās mācīšanās paradigmā formulēt ļoti plašu problēmu loku, sākot ar, piemēram, orientēšanos labirintā, līdz autonomai lidaparāta kontrolei.
 
-\textit{Aliquam auctor}, metus id ultrices porta, risus enim cursus sapien, quis iaculis sapien tortor sed odio. Mauris ante orci, euismod vitae tincidunt eu, porta ut neque. Aenean sapien est, viverra vel lacinia nec, venenatis eu nulla. Maecenas ut nunc nibh, et tempus libero. Aenean vitae risus ante. Pellentesque condimentum dui. Etiam sagittis purus non tellus tempor volutpat. Donec et dui non massa tristique adipiscing.
+Uzdevumu risināšana nepārtrauktās darbību telpās ir plaši pētīta, un to var veikt samērā sekmīgi.
+Tomēr citāda situācija paveras nepārtrauktu darbības telpu gadījumā.
+Šāda tipa uzdevumu risināšana ir mazāk pētīta, un plaši lietotās nepārtrauktu stāvokļu telpu pieejas šeit nav tiešā veidā izmantojamas.
 
-Phasellus imperdiet, tortor vitae congue bibendum, felis enim sagittis lorem, et volutpat ante orci sagittis mi. Morbi rutrum laoreet semper. Morbi accumsan enim nec tortor consectetur non commodo nisi sollicitudin. Proin sollicitudin. Pellentesque eget orci eros. Fusce ultricies, tellus et pellentesque fringilla, ante massa luctus libero, quis tristique \textbf{purus urna nec nibh}.
+No otras puses, literatūrā un praksē ir sastopams daudz piemēru, kas izceļ neironu tīklus kā universālu līdzekli dažāda tipa problēmu risināšanā.
+Tiek demonstrētas to pozitīvās īpašības, kā robustums, spēja vispārināt un pielietojuma iespēju daudzveidība.
+Ir zināms, ka neironu tīkli var kalpot kā universāls nepārtrauktu funkciju aproksimācijas līdzeklis.
+Tas liek domāt, ka neironu tīkli ir dabīgā veidā izmantojami stimulētās mācīšanās uzdevumos aģenta darbību izvēles mehānisma reprezentācijai.
+To var intuitīvi pamatot ar neironu tīklu spēju atrast sakarības datos -- virspusēji nav redzami ierobežojumi, lai šī īpašība nebūtu pārnesama arī stimulētās mācīšanās uzdevumos, sakarību meklēšanai aģenta kontroles stratēģijā.
+Turklāt, ir pamats domāt, ka rezultātā iegūtā algoritma uzbūve būtu gana vispārīga, lai to kā universālu līdzekli pielietotu plašam problēmu lokam.
 
 %----------------------------------------------------------------------------------------
 %	OBJECTIVES
@@ -118,24 +140,16 @@ Phasellus imperdiet, tortor vitae congue bibendum, felis enim sagittis lorem, et
 
 \color{DarkSlateGray} % DarkSlateGray color for the rest of the content
 
-\section*{Main Objectives}
+\section*{Galvenie mērķi}
 
-\begin{enumerate}
-\item Lorem ipsum dolor sit amet, consectetur.
-\item Nullam at mi nisl. Vestibulum est purus, ultricies cursus volutpat sit amet, vestibulum eu.
-\item Praesent tortor libero, vulputate quis elementum a, iaculis.
-\item Phasellus a quam mauris, non varius mauris. Fusce tristique, enim tempor varius porta, elit purus commodo velit, pretium mattis ligula nisl nec ante.
-\item Ut adipiscing accumsan sapien, sit amet pretium.
-\item Estibulum est purus, ultricies cursus volutpat
-\item Nullam at mi nisl. Vestibulum est purus, ultricies cursus volutpat sit amet, vestibulum eu.
-\item Praesent tortor libero, vulputate quis elementum a, iaculis.
-\end{enumerate}
+Par darba mērķi tiek izvirzīts izvērtēt iespējas risināt stimulētās mācīšanās uzdevumus nepārtrauktās darbības telpās, izmantojot neironu tīklus kā līdzekli stratēģijas reprezentēšanai.
+Meklētas tiek vispārīgas pieejas, problēmas risināšanai, kas ļautu nonākt pie universāla un viegli pielietojama algoritma stimulētās mācīšanās uzdevumu risināšanai nepārtrauktās darbību telpās.
 
 %----------------------------------------------------------------------------------------
 %	MATERIALS AND METHODS
 %----------------------------------------------------------------------------------------
 
-\section*{Materials and Methods}
+\section*{Markova izvēles procesi}
 
 Fusce magna risus, molestie ut porttitor in, consectetur sed mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque consectetur blandit pellentesque. Sed odio justo, viverra nec porttitor vel, lacinia a nunc. Suspendisse pulvinar euismod arcu, sit amet accumsan enim fermentum quis. In id mauris ut dui feugiat egestas. Vestibulum ac turpis lacinia nisl commodo sagittis eget sit amet sapien. Phasellus imperdiet, tortor vitae congue bibendum, felis enim sagittis lorem, et volutpat ante orci sagittis mi. Morbi rutrum laoreet semper. Morbi accumsan enim nec tortor consectetur non commodo nisi sollicitudin. Proin sollicitudin. Pellentesque eget orci eros. Fusce ultricies, tellus et pellentesque fringilla, ante massa luctus libero, quis tristique purus urna nec nibh. Proin sollicitudin. Pellentesque eget orci eros. Fusce ultricies, tellus et pellentesque fringilla, ante massa luctus libero, quis tristique purus urna nec nibh.
 
